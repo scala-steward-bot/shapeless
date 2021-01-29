@@ -37,10 +37,9 @@ notifications:
 jobs:
   include:
     - stage: test
+      dist: bionic
       env:
         - SCALA_NATIVE=true
-      before_install:
-        - curl https://raw.githubusercontent.com/scala-native/scala-native/master/scripts/travis_setup.sh | bash -x
     - stage: release
       before_install:
         - git fetch --tags
